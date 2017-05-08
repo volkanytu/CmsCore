@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MySqlConnector">
+      <Version>0.19.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CmsCore.Library.Constants\CmsCore.Library.Constants.csproj">
+      <Project>{246BFDB5-E686-449E-9AF1-CE431D2974F4}</Project>
+      <Name>CmsCore.Library.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CmsCore.Library.Entities\CmsCore.Library.Entities.csproj">
+      <Project>{4EDA1951-3059-418E-A1C6-E9AE87A6F8FD}</Project>
+      <Name>CmsCore.Library.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CmsCore.Library.Data.Interfaces\CmsCore.Library.Data.Interfaces.csproj">
+      <Project>{F367DAAE-0C57-4ED9-876C-04C92BDB5F32}</Project>
+      <Name>CmsCore.Library.Data.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CmsCore.Library.Entities\CmsCore.Library.Entities.csproj">
+      <Project>{4EDA1951-3059-418E-A1C6-E9AE87A6F8FD}</Project>
+      <Name>CmsCore.Library.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\CmsCore.Libary.Data.MySqlDao\CmsCore.Libary.Data.MySqlDao.csproj">
+      <Project>{15B79BBF-AEDB-494A-96F6-9B422D103923}</Project>
+      <Name>CmsCore.Libary.Data.MySqlDao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CmsCore.Library.Business\CmsCore.Library.Business.csproj">
+      <Project>{C354BB4B-2AD1-4408-9FDA-B61785CEDC86}</Project>
+      <Name>CmsCore.Library.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

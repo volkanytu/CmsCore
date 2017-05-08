@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\Data\CmsCore.Libary.Data.MySqlDao\CmsCore.Libary.Data.MySqlDao.csproj">
+      <Project>{15b79bbf-aedb-494a-96f6-9b422d103923}</Project>
+      <Name>CmsCore.Libary.Data.MySqlDao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\Domain\CmsCore.Library.Facade\CmsCore.Library.Facade.csproj">
+      <Project>{e454c678-5be9-4724-959b-3bc75aa8968c}</Project>
+      <Name>CmsCore.Library.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\Ioc\CmsCore.Library.Ioc.IocManager\CmsCore.Library.Ioc.IocManager.csproj">
+      <Project>{c562873d-b243-4259-90a0-4a94c3133909}</Project>
+      <Name>CmsCore.Library.Ioc.IocManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection">
+      <Version>4.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Autofac.Extras.DynamicProxy">
+      <Version>4.2.1</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>
