@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CmsCore.Library.Business.Interfaces;
 using CmsCore.Library.Entities;
@@ -18,17 +19,23 @@ namespace CmsCore.Library.Facade
 
         public void SetupTables()
         {
-            var departmentAttributes = GetDepartmentTableAttributes();
-            _entityBusiness.CreateEntityTable("cms_department", departmentAttributes.ToList());
+            var tableList = new Dictionary<string, List<AttributeModel>>
+            {
+                {"cms_department", GetDepartmentTableAttributes().ToList()},
+                {"cms_user", GetUserTableAttributes().ToList()},
+                {"cms_entity", GetEntityTableAttributes().ToList()},
+                {"cms_attribute", GetAttributeTableAttributes().ToList()},
+                {"cms_stringmap", GetStringMapTableAttributes().ToList()},
+                {"cms_statusmap", GetStatusMapTableAttributes().ToList()},
+                {"cms_relation", GetRelationTableAttributes().ToList()}
+            };
 
-            var userAttributes = GetUserTableAttributes();
-            _entityBusiness.CreateEntityTable("cms_user", userAttributes.ToList());
+            foreach (var table in tableList)
+            {
+                _entityBusiness.CreateEntityTable(table.Key, table.Value);
 
-            var entityAttributes = GetEntityTableAttributes();
-            _entityBusiness.CreateEntityTable("cms_entity", entityAttributes.ToList());
-
-            var attributeAttributes = GetAttributeTableAttributes();
-            _entityBusiness.CreateEntityTable("cms_attribute", attributeAttributes.ToList());
+                Console.WriteLine("{0} table created!", table.Key);
+            }
         }
 
         private static IEnumerable<AttributeModel> GetEntityTableAttributes()
@@ -184,6 +191,12 @@ namespace CmsCore.Library.Facade
                 },
                 new AttributeModel
                 {
+                    DbType = DbType.VARCHAR,
+                    Name = "cms_title",
+                    Length = 100
+                },
+                new AttributeModel
+                {
                     DbType = DbType.INT,
                     Name = "cms_entityid",
                 },
@@ -322,6 +335,121 @@ namespace CmsCore.Library.Facade
                 {
                     DbType = DbType.INT,
                     Name = "cms_modifiedby",
+                },
+            };
+        }
+
+        private static IEnumerable<AttributeModel> GetStringMapTableAttributes()
+        {
+            return new List<AttributeModel>()
+            {
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    EntityModelId = 1,
+                    IsAutoIncrement = true,
+                    IsPk = true,
+                    Name = "id"
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.VARCHAR,
+                    Name = "cms_attributename",
+                    Length = 100
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_value",
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.VARCHAR,
+                    Name = "cms_text",
+                    Length = 100
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_entityid",
+                },
+            };
+        }
+
+        private static IEnumerable<AttributeModel> GetStatusMapTableAttributes()
+        {
+            return new List<AttributeModel>()
+            {
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    EntityModelId = 1,
+                    IsAutoIncrement = true,
+                    IsPk = true,
+                    Name = "id"
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_state",
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_status",
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_entityid",
+                },
+            };
+        }
+
+        private static IEnumerable<AttributeModel> GetRelationTableAttributes()
+        {
+            return new List<AttributeModel>()
+            {
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    EntityModelId = 1,
+                    IsAutoIncrement = true,
+                    IsPk = true,
+                    Name = "id"
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.VARCHAR,
+                    Name = "cms_name",
+                    Length = 200
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.VARCHAR,
+                    Name = "cms_tablename",
+                    IsNullable = true,
+                    Length = 200
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_referencingentityid",
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_referencingattributeid",
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_referencedentityid",
+                },
+                new AttributeModel
+                {
+                    DbType = DbType.INT,
+                    Name = "cms_referencedattributeid",
                 },
             };
         }

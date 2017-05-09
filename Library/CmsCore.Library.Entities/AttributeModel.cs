@@ -6,6 +6,7 @@ namespace CmsCore.Library.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Title { get; set; }
         public int EntityModelId { get; set; }
         public CrmType CrmType { get; set; }
         public DbType DbType { get; set; }

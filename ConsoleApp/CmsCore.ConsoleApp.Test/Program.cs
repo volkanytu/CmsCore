@@ -12,29 +12,29 @@ namespace CmsCore.ConsoleApp.Test
         {
             var container = IocContainerConfig.GetContainer();
 
-            Console.WriteLine("cms_entity Table update test11_{0}", DateTime.Now);
+            Console.WriteLine("Setup tables facade is working_{0}", DateTime.Now);
 
-            var entityAccess = container.Resolve<IEntityAccess>();
-
-            var entity = new CmsEntity("cms_entity", 4)
-            {
-                ["cms_name"] = "cms_account",
-                ["cms_title"] = "Firma",
-                ["cms_pluraltitle"] = "Firmalar",
-                ["cms_description"] = "Firma Data Container"
-            };
+//            var entityAccess = container.Resolve<IEntityAccess>();
+//
+//            var entity = new CmsEntity("cms_entity", 4)
+//            {
+//                ["cms_name"] = "cms_account",
+//                ["cms_title"] = "Firma",
+//                ["cms_pluraltitle"] = "Firmalar",
+//                ["cms_description"] = "Firma Data Container"
+//            };
 
             //var insertedId =entityAccess.Create(entity);
-            entityAccess.Update(entity);
+            //entityAccess.Update(entity);
             //entityAccess.Delete("cms_entity", 3);
 
             //Console.WriteLine("Inserted Entity Id:{0}", insertedId.ToString());
-            Console.WriteLine("updated Entity Id:{0}", entity.Id);
+            //Console.WriteLine("updated Entity Id:{0}", entity.Id);
 
 //            Console.WriteLine("Setup Tables Started_{0}kl",DateTime.Now);
 
-//            var setupFacade = container.Resolve<ISetupFacade>();
-//            setupFacade.SetupTables();
+            var setupFacade = container.Resolve<ISetupFacade>();
+            setupFacade.SetupTables();
 
 //            var mySqlAccess = container.Resolve<IDbAccess>();
 
