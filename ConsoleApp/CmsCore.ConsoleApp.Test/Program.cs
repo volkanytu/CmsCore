@@ -18,10 +18,10 @@ namespace CmsCore.ConsoleApp.Test
 
             var entity = new CmsEntity("cms_entity", 4)
             {
-                ["name"] = "cms_account",
-                ["title"] = "Firma",
-                ["pluraltitle"] = "Firmalar",
-                ["description"] = "Firma Data Container"
+                ["cms_name"] = "cms_account",
+                ["cms_title"] = "Firma",
+                ["cms_pluraltitle"] = "Firmalar",
+                ["cms_description"] = "Firma Data Container"
             };
 
             //var insertedId =entityAccess.Create(entity);
